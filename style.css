@@ -1,4 +1,4 @@
-/* RESET */
+ /* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -13,14 +13,20 @@ body {
   line-height: 1.6;
 }
 
-/* LINKS GERAIS (hover consistente) */
+/* LINKS GERAIS */
 a {
   transition: all 0.3s ease;
 }
 
 a:hover {
   opacity: 0.85;
-  transform: translateY(-2px);
+}
+
+/* hover só em dispositivos com mouse */
+@media (hover: hover) {
+  a:hover {
+    transform: translateY(-2px);
+  }
 }
 
 /* HEADER */
@@ -42,10 +48,34 @@ nav a {
   color: #eaeaea;
   margin: 0 10px;
   text-decoration: none;
+  position: relative;
 }
 
-nav a:hover {
+/* efeito underline moderno */
+nav a::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: #d4af37;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* MENU MOBILE */
+.menu-toggle {
+  display: none;
+  background: #000;
   color: #d4af37;
+  border: 1px solid rgba(212,175,55,0.3);
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 18px;
 }
 
 /* HERO */
@@ -84,13 +114,14 @@ nav a:hover {
 .btn {
   display: inline-block;
   margin-top: 15px;
-  padding: 13px 30px;
+  padding: 13px 32px;
   background: linear-gradient(135deg, #d4af37, #b8942e);
   color: #000;
   text-decoration: none;
-  border-radius: 30px;
+  border-radius: 50px;
   font-weight: 600;
   box-shadow: 0 8px 20px rgba(212, 175, 55, 0.25);
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
@@ -115,9 +146,14 @@ nav a:hover {
 .service-box article {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(212, 175, 55, 0.15);
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 320px;
+  padding: 25px;
+  border-radius: 16px;
+  max-width: 340px;
+  transition: 0.3s ease;
+}
+
+.service-box article:hover {
+  transform: translateY(-5px);
 }
 
 .service-box h3 {
@@ -148,12 +184,7 @@ nav a:hover {
   border-radius: 10px;
 }
 
-/* WHATSAPP */
-.whatsapp {
-  text-align: center;
-  margin-top: 20px;
-}
-
+/* WHATSAPP BOTÃO */
 .btn-whats {
   display: inline-block;
   padding: 14px 28px;
@@ -163,11 +194,31 @@ nav a:hover {
   border-radius: 30px;
   font-weight: 600;
   box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+  transition: all 0.3s ease;
 }
 
 .btn-whats:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+}
+
+/* WHATSAPP FIXO */
+.whats-fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(37,211,102,0.3);
+  z-index: 999;
+}
+
+.whats-fixed:hover {
+  transform: scale(1.05);
 }
 
 /* REDES */
@@ -190,23 +241,17 @@ nav a:hover {
 section {
   padding: 60px 20px;
   text-align: center;
+
+  /* base para animação JS */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s ease;
 }
 
 /* TÍTULOS */
 h2 {
   color: #d4af37;
   margin-bottom: 20px;
-}
-
-/* LISTAS */
-ul {
-  list-style: none;
-  margin: 20px 0;
-}
-
-ul li {
-  margin-bottom: 10px;
-  color: #ddd;
 }
 
 /* FOOTER */
@@ -239,9 +284,20 @@ footer {
     max-width: 260px;
   }
 
-  nav a {
-    display: inline-block;
-    margin: 8px 6px;
+  nav {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin: 0 auto;
   }
 
   .service-box {
