@@ -13,20 +13,14 @@ body {
   line-height: 1.6;
 }
 
-/* LINKS GERAIS */
+/* LINKS */
 a {
-  transition: all 0.3s ease;
+  color: inherit;
+  text-decoration: none;
 }
 
 a:hover {
   opacity: 0.85;
-}
-
-/* hover só em dispositivos com mouse */
-@media (hover: hover) {
-  a:hover {
-    transform: translateY(-2px);
-  }
 }
 
 /* HEADER */
@@ -44,14 +38,20 @@ header h1 {
 }
 
 /* MENU */
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
 nav a {
   color: #eaeaea;
-  margin: 0 10px;
-  text-decoration: none;
+  font-size: 16px;
   position: relative;
 }
 
-/* efeito underline moderno */
+/* underline elegante */
 nav a::after {
   content: "";
   width: 0;
@@ -65,17 +65,6 @@ nav a::after {
 
 nav a:hover::after {
   width: 100%;
-}
-
-/* MENU MOBILE */
-.menu-toggle {
-  display: none;
-  background: #000;
-  color: #d4af37;
-  border: 1px solid rgba(212,175,55,0.3);
-  padding: 10px 15px;
-  border-radius: 8px;
-  font-size: 18px;
 }
 
 /* HERO */
@@ -92,7 +81,6 @@ nav a:hover::after {
 .hero-text h2 {
   font-size: 40px;
   color: #d4af37;
-  letter-spacing: 1px;
 }
 
 .hero-text p {
@@ -101,7 +89,7 @@ nav a:hover::after {
   color: #cccccc;
 }
 
-/* IMAGEM HERO */
+/* IMAGEM */
 .hero-img {
   max-width: 340px;
   width: 100%;
@@ -117,16 +105,13 @@ nav a:hover::after {
   padding: 13px 32px;
   background: linear-gradient(135deg, #d4af37, #b8942e);
   color: #000;
-  text-decoration: none;
   border-radius: 50px;
   font-weight: 600;
-  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.25);
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
 }
 
 /* SERVIÇOS */
@@ -167,7 +152,7 @@ nav a:hover::after {
   margin-bottom: 15px;
 }
 
-/* LINKS HOME */
+/* LINKS RÁPIDOS */
 .home-links {
   padding: 40px 20px;
   text-align: center;
@@ -178,59 +163,41 @@ nav a:hover::after {
   margin: 12px auto;
   max-width: 320px;
   padding: 12px;
-  color: #d4af37;
-  text-decoration: none;
   border: 1px solid rgba(212, 175, 55, 0.2);
   border-radius: 10px;
+  color: #d4af37;
 }
 
-/* WHATSAPP BOTÃO */
+/* WHATSAPP */
+.whatsapp {
+  text-align: center;
+  padding: 20px;
+}
+
 .btn-whats {
   display: inline-block;
   padding: 14px 28px;
   background: #25D366;
   color: white;
-  text-decoration: none;
   border-radius: 30px;
   font-weight: 600;
-  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
-  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(37,211,102,0.25);
+  transition: 0.3s ease;
 }
 
 .btn-whats:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
-}
-
-/* WHATSAPP FIXO */
-.whats-fixed {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: white;
-  padding: 14px 18px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 8px 20px rgba(37,211,102,0.3);
-  z-index: 999;
-}
-
-.whats-fixed:hover {
   transform: scale(1.05);
 }
 
 /* REDES */
 .redes {
   text-align: center;
-  padding-bottom: 40px;
+  padding: 30px 20px;
 }
 
 .redes a {
   margin: 0 10px;
   color: #d4af37;
-  text-decoration: none;
 }
 
 .redes a:hover {
@@ -241,11 +208,6 @@ nav a:hover::after {
 section {
   padding: 60px 20px;
   text-align: center;
-
-  /* base para animação JS */
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 0.6s ease;
 }
 
 /* TÍTULOS */
@@ -260,7 +222,6 @@ footer {
   padding: 25px;
   text-align: center;
   color: #777;
-  margin-top: 40px;
   border-top: 1px solid rgba(212, 175, 55, 0.15);
 }
 
@@ -285,19 +246,8 @@ footer {
   }
 
   nav {
-    display: none;
     flex-direction: column;
     gap: 10px;
-    margin-top: 10px;
-  }
-
-  nav.active {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-    margin: 0 auto;
   }
 
   .service-box {
