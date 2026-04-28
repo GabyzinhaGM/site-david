@@ -13,6 +13,16 @@ body {
   line-height: 1.6;
 }
 
+/* LINKS GERAIS (hover consistente) */
+a {
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
 /* HEADER */
 header {
   background: #000;
@@ -32,8 +42,6 @@ nav a {
   color: #eaeaea;
   margin: 0 10px;
   text-decoration: none;
-  transition: 0.3s;
-  font-weight: 400;
 }
 
 nav a:hover {
@@ -82,13 +90,45 @@ nav a:hover {
   text-decoration: none;
   border-radius: 30px;
   font-weight: 600;
-  transition: 0.3s;
   box-shadow: 0 8px 20px rgba(212, 175, 55, 0.25);
 }
 
 .btn:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+}
+
+/* SERVIÇOS */
+.services {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.service-box {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.service-box article {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 320px;
+}
+
+.service-box h3 {
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.service-box p {
+  color: #ccc;
+  font-size: 15px;
+  margin-bottom: 15px;
 }
 
 /* LINKS HOME */
@@ -99,18 +139,16 @@ nav a:hover {
 
 .home-links a {
   display: block;
-  margin: 12px 0;
+  margin: 12px auto;
+  max-width: 320px;
+  padding: 12px;
   color: #d4af37;
   text-decoration: none;
-  font-size: 18px;
-  transition: 0.3s;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 10px;
 }
 
-.home-links a:hover {
-  color: #ffffff;
-}
-
-/* WHATSAPP BOTÃO PRINCIPAL */
+/* WHATSAPP */
 .whatsapp {
   text-align: center;
   margin-top: 20px;
@@ -124,7 +162,6 @@ nav a:hover {
   text-decoration: none;
   border-radius: 30px;
   font-weight: 600;
-  transition: 0.3s;
   box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
 }
 
@@ -133,7 +170,7 @@ nav a:hover {
   box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
 }
 
-/* REDES SOCIAIS */
+/* REDES */
 .redes {
   text-align: center;
   padding-bottom: 40px;
@@ -143,14 +180,13 @@ nav a:hover {
   margin: 0 10px;
   color: #d4af37;
   text-decoration: none;
-  transition: 0.3s;
 }
 
 .redes a:hover {
   color: #ffffff;
 }
 
-/* SEÇÕES GERAIS */
+/* SEÇÕES */
 section {
   padding: 60px 20px;
   text-align: center;
@@ -188,9 +224,28 @@ footer {
   .hero {
     flex-direction: column;
     gap: 25px;
+    padding: 40px 15px;
   }
 
   .hero-text h2 {
     font-size: 30px;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+  }
+
+  .hero-img {
+    max-width: 260px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 8px 6px;
+  }
+
+  .service-box {
+    flex-direction: column;
+    align-items: center;
   }
 }
