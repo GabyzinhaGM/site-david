@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Login - Administração da Agenda</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .login-container {
+      max-width: 450px;
+      margin: 60px auto;
+      padding: 25px;
+    }
+
+    .campo {
+      margin-bottom: 20px;
+    }
+
+    .campo label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .campo input {
+      width: 100%;
+      padding: 12px;
+      box-sizing: border-box;
+      border-radius: 6px;
+      border: 1px solid #999;
+      font-size: 16px;
+    }
+
+    .btn-login {
+      padding: 14px 25px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    #mensagem {
+      margin-top: 20px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Área administrativa</h1>
+</header>
+
+<main class="login-container">
+
+  <h2>Entrar</h2>
+
+  <form id="form-login">
+
+    <div class="campo">
+      <label for="email">E-mail</label>
+
+      <input
+        type="email"
+        id="email"
+        required
+        autocomplete="email"
+      >
+    </div>
+
+    <div class="campo">
+      <label for="senha">Senha</label>
+
+      <input
+        type="password"
+        id="senha"
+        required
+        autocomplete="current-password"
+      >
+    </div>
+
+    <button
+      type="submit"
+      class="btn-login"
+    >
+      Entrar
+    </button>
+
+  </form>
+
+  <div
+    id="mensagem"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+</main>
+
+<script src="login.js"></script>
+
+</body>
+
+</html>

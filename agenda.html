@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Agenda - David Meireles</title>
 
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  >
 </head>
 
 <body>
@@ -16,70 +21,183 @@
 
   <nav aria-label="Menu principal">
     <a href="index.html">Home</a>
-    <a href="agenda.html">Agenda</a>
+    <a href="agenda.html" aria-current="page">Agenda</a>
     <a href="orcamento.html">Orçamento</a>
     <a href="sobre.html">Sobre</a>
   </nav>
 </header>
 
-<section aria-label="Agenda de shows">
+<main>
 
-  <h2>Maio</h2>
+  <section aria-label="Agenda de shows">
 
-  <div class="agenda-item">
-    <p><strong>02/05</strong> - Dom Camaron (Linhares/ES)</p>
-  </div>
+    <h2>Próximos shows</h2>
 
-  <div class="agenda-item">
-    <p><strong>09/05</strong> - Casamento (Linhares/ES) - Evento privado</p>
-  </div>
+    <div id="agenda">
+      <p>Carregando agenda...</p>
+    </div>
 
-  <div class="agenda-item">
-    <p><strong>13/05</strong> - Teatro Fernanda Montenegro (Curitiba/PR) - Evento privado</p>
-  </div>
+    <p style="margin-top:20px; color:#ccc;">
+      Agenda sujeita a alterações. Novas datas serão adicionadas em breve.
+    </p>
 
-  <div class="agenda-item">
-    <p><strong>15/05</strong> - Meats Spetos (Linhares/ES)</p>
-  </div>
+  </section>
 
-  <div class="agenda-item">
-    <p><strong>22/05</strong> - Pretinha Bar e Petiscaria (Linhares/ES)</p>
-  </div>
+  <section style="text-align:center; margin-top:30px;">
+    <a href="index.html" class="btn-voltar">
+      ← Voltar para Home
+    </a>
+  </section>
 
-  <div class="agenda-item">
-    <p><strong>23/05</strong> - Dom Camaron (Linhares/ES)</p>
-  </div>
-
-  <div class="agenda-item">
-    <p><strong>29/05</strong> - Fusão Bar (Linhares/ES)</p>
-  </div>
-
-  <div class="agenda-item">
-    <p><strong>30/05</strong> - Evento privado (Curitiba/PR)</p>
-  </div>
-
-  <p style="margin-top:20px; color:#ccc;">
-    Agenda sujeita a alterações. Novas datas serão adicionadas em breve.
-  </p>
-
-</section>
-
-<!-- BOTÃO VOLTAR -->
-<section style="text-align:center; margin-top:30px;">
-  <a href="index.html" class="btn-voltar">
-    ← Voltar para Home
-  </a>
-</section>
+</main>
 
 <footer>
   <p>© 2026 David Meireles</p>
 
   <p>
-    Desenvolvido por 
-    <a href="https://www.linkedin.com/in/gabriela-godoy-228390a3" target="_blank">
+    Desenvolvido por
+    <a
+      href="https://www.linkedin.com/in/gabriela-godoy-228390a3"
+      target="_blank"
+      rel="noopener"
+    >
       Gabriela Godoy
     </a>
   </p>
 </footer>
+
+<script>
+
+const SUPABASE_URL = "https://msgvcxaerouwkswhsudv.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_CfeoEMG2xpSDxnHxgxm0tQ_-dEJJZhf";
+
+const agenda = document.getElementById("agenda");
+
+async function carregarAgenda() {
+
+  try {
+
+    const resposta = await fetch(
+      `${SUPABASE_URL}/rest/v1/agenda?select=*&order=data.asc,horario.asc`,
+      {
+        method: "GET",
+
+        headers: {
+          "apikey": SUPABASE_KEY,
+          "Authorization": `Bearer ${SUPABASE_KEY}`
+        }
+      }
+    );
+
+    if (!resposta.ok) {
+      throw new Error("Erro ao carregar a agenda.");
+    }
+
+    const eventos = await resposta.json();
+
+    agenda.innerHTML = "";
+
+    if (eventos.length === 0) {
+
+      agenda.innerHTML = `
+        <p>Nenhum show cadastrado no momento.</p>
+      `;
+
+      return;
+    }
+
+    eventos.forEach(function(evento) {
+
+      const item = document.createElement("article");
+
+      item.className = "agenda-item";
+
+      const data = new Date(evento.data + "T00:00:00");
+
+      const dataFormatada = data.toLocaleDateString("pt-BR");
+
+      let horario = "";
+
+      if (evento.horario) {
+
+        horario = evento.horario.substring(0, 5);
+
+      }
+
+      let texto = `
+        <p>
+          <strong>${dataFormatada}</strong>
+          -
+          ${evento.local}
+          (${evento.cidade}/${evento.estado})
+        </p>
+      `;
+
+      if (horario) {
+
+        texto += `
+          <p>Horário: ${horario}</p>
+        `;
+
+      }
+
+      if (evento.tipo_evento) {
+
+        texto += `
+          <p>Tipo: ${evento.tipo_evento}</p>
+        `;
+
+      }
+
+      if (evento.privado) {
+
+        texto += `
+          <p>Evento privado</p>
+        `;
+
+      }
+
+      if (evento.link) {
+
+        texto += `
+          <p>
+            <a
+              href="${evento.link}"
+              target="_blank"
+              rel="noopener"
+            >
+              Mais informações
+            </a>
+          </p>
+        `;
+
+      }
+
+      item.innerHTML = texto;
+
+      agenda.appendChild(item);
+
+    });
+
+  } catch (erro) {
+
+    console.error(erro);
+
+    agenda.innerHTML = `
+      <p>
+        Não foi possível carregar a agenda no momento.
+      </p>
+    `;
+
+  }
+
+}
+
+carregarAgenda();
+
+</script>
+
 </body>
+
 </html>

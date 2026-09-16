@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Administrar Agenda - David Meireles</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .admin-container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 25px;
+    }
+
+    .admin-container h2 {
+      margin-bottom: 25px;
+    }
+
+    .campo {
+      margin-bottom: 20px;
+    }
+
+    .campo label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .campo input,
+    .campo select {
+      width: 100%;
+      padding: 12px;
+      box-sizing: border-box;
+      border-radius: 6px;
+      border: 1px solid #999;
+      font-size: 16px;
+    }
+
+    .campo-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .campo-checkbox input {
+      width: 20px;
+      height: 20px;
+    }
+
+    .btn-cadastrar,
+    .btn-editar,
+    .btn-excluir,
+    .btn-cancelar,
+    #botao-sair {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    #botao-sair {
+      margin-top: 10px;
+    }
+
+    #mensagem {
+      margin-top: 20px;
+      font-weight: 600;
+    }
+
+    .show-admin {
+      border: 1px solid #999;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .show-admin p {
+      margin: 7px 0;
+    }
+
+    .acoes {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <h1>Administrar Agenda</h1>
+
+  <button
+    type="button"
+    id="botao-sair"
+  >
+    Sair
+  </button>
+
+  <nav aria-label="Menu principal">
+
+    <a href="index.html">Home</a>
+
+    <a href="agenda.html">Agenda</a>
+
+    <a
+      href="admin-agenda.html"
+      aria-current="page"
+    >
+      Administrar agenda
+    </a>
+
+    <a href="orcamento.html">Orçamento</a>
+
+    <a href="sobre.html">Sobre</a>
+
+  </nav>
+
+</header>
+
+<main class="admin-container">
+
+  <h2 id="titulo-formulario">
+    Cadastrar novo show
+  </h2>
+
+  <form id="form-agenda">
+
+    <div class="campo">
+
+      <label for="data">
+        Data do evento
+      </label>
+
+      <input
+        type="date"
+        id="data"
+        name="data"
+        required
+      >
+
+    </div>
+
+
+    <div class="campo">
+
+      <label for="horario">
+        Horário
+      </label>
+
+      <input
+        type="time"
+        id="horario"
+        name="horario"
+      >
+
+    </div>
+
+
+    <div class="campo">
+
+      <label for="local">
+        Local
+      </label>
+
+      <input
+        type="text"
+        id="local"
+        name="local"
+        placeholder="Ex.: Dom Camaron"
+        required
+      >
+
+    </div>
+
+
+    <div class="campo">
+
+      <label for="cidade">
+        Cidade
+      </label>
+
+      <input
+        type="text"
+        id="cidade"
+        name="cidade"
+        placeholder="Ex.: Linhares"
+        required
+      >
+
+    </div>
+
+
+    <div class="campo">
+
+      <label for="estado">
+        Estado
+      </label>
+
+      <select
+        id="estado"
+        name="estado"
+        required
+      >
+
+        <option value="">
+          Selecione o estado
+        </option>
+
+        <option value="AC">Acre - AC</option>
+        <option value="AL">Alagoas - AL</option>
+        <option value="AP">Amapá - AP</option>
+        <option value="AM">Amazonas - AM</option>
+        <option value="BA">Bahia - BA</option>
+        <option value="CE">Ceará - CE</option>
+        <option value="DF">Distrito Federal - DF</option>
+        <option value="ES">Espírito Santo - ES</option>
+        <option value="GO">Goiás - GO</option>
+        <option value="MA">Maranhão - MA</option>
+        <option value="MT">Mato Grosso - MT</option>
+        <option value="MS">Mato Grosso do Sul - MS</option>
+        <option value="MG">Minas Gerais - MG</option>
+        <option value="PA">Pará - PA</option>
+        <option value="PB">Paraíba - PB</option>
+        <option value="PR">Paraná - PR</option>
+        <option value="PE">Pernambuco - PE</option>
+        <option value="PI">Piauí - PI</option>
+        <option value="RJ">Rio de Janeiro - RJ</option>
+        <option value="RN">Rio Grande do Norte - RN</option>
+        <option value="RS">Rio Grande do Sul - RS</option>
+        <option value="RO">Rondônia - RO</option>
+        <option value="RR">Roraima - RR</option>
+        <option value="SC">Santa Catarina - SC</option>
+        <option value="SP">São Paulo - SP</option>
+        <option value="SE">Sergipe - SE</option>
+        <option value="TO">Tocantins - TO</option>
+
+      </select>
+
+    </div>
+
+
+    <div class="campo">
+
+      <label for="tipo_evento">
+        Tipo de evento
+      </label>
+
+      <input
+        type="text"
+        id="tipo_evento"
+        name="tipo_evento"
+        placeholder="Ex.: Show"
+      >
+
+    </div>
+
+
+    <div class="campo-checkbox">
+
+      <input
+        type="checkbox"
+        id="privado"
+        name="privado"
+      >
+
+      <label for="privado">
+        Evento privado
+      </label>
+
+    </div>
+
+
+    <div class="campo">
+
+      <label for="link">
+        Link para ingresso ou informações (opcional)
+      </label>
+
+      <input
+        type="url"
+        id="link"
+        name="link"
+        placeholder="https://..."
+      >
+
+    </div>
+
+
+    <button
+      type="submit"
+      class="btn-cadastrar"
+      id="botao-salvar"
+    >
+      Cadastrar show
+    </button>
+
+
+    <button
+      type="button"
+      class="btn-cancelar"
+      id="botao-cancelar"
+      hidden
+    >
+      Cancelar edição
+    </button>
+
+  </form>
+
+
+  <div
+    id="mensagem"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+
+  <hr style="margin: 40px 0;">
+
+
+  <section aria-label="Shows cadastrados">
+
+    <h2>Shows cadastrados</h2>
+
+    <div id="lista-shows">
+
+      <p>
+        Carregando shows...
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <p>
+    © 2026 David Meireles
+  </p>
+
+  <p>
+
+    Desenvolvido por
+
+    <a
+      href="https://www.linkedin.com/in/gabriela-godoy-228390a3"
+      target="_blank"
+      rel="noopener"
+    >
+      Gabriela Godoy
+    </a>
+
+  </p>
+
+</footer>
+
+
+<script src="admin-agenda.js"></script>
+
+</body>
+
+</html>
