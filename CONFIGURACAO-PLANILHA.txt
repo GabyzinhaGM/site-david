@@ -1,0 +1,17 @@
+APROVAÇÃO DOS RECADOS E AVALIAÇÕES — DAVID MEIRELES
+
+1. Use a Planilha Google já criada, com a aba chamada Mensagens.
+2. O código Codigo.gs deste ZIP deve ser instalado como projeto Apps Script vinculado à planilha.
+3. É necessário autorizar e implantar o Apps Script como Aplicativo da Web:
+   - Executar como: você (proprietária da planilha).
+   - Quem tem acesso: qualquer pessoa (necessário para visitantes enviarem).
+4. Copie a URL terminada em /exec e substitua COLE_AQUI_URL_APPS_SCRIPT no arquivo configuracao.js.
+5. Publique os arquivos do site no GitHub Pages.
+6. Na coluna F da planilha, mude Pendente para Aprovado ou Rejeitado. Somente Aprovado aparece publicamente.
+7. A planilha deve continuar privada. Não compartilhe o link de edição.
+
+ATENÇÃO: o PowerShell sozinho não configura nem autoriza o Apps Script no Google.
+Se o editor Apps Script não for acessível pelo NVDA, peça ajuda de alguém de confiança para executar APENAS as etapas 2 e 3, ou utilize a ferramenta clasp após configurar a autenticação Google. O código já está pronto.
+
+Os formulários usam envio HTML para um iframe oculto: o navegador não consegue confirmar com segurança se a gravação ocorreu. Por isso o site não exibe 'enviado com sucesso' automaticamente; instrui o visitante a confirmar com a equipe em caso de dúvida.
+O código tem validação básica e honeypot, mas endpoint público ainda está sujeito a spam; para uso intenso, acrescente proteção antispam/rate limiting.
