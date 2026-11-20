@@ -1,0 +1,8 @@
+SITE DAVID MEIRELES - ATUALIZACAO
+
+Substitua os arquivos na RAIZ do repositorio site-david.
+IMPORTANTE: Preserve CNAME, DSC_1035.jpg e agenda.json atuais (nao inclusos no ZIP).
+Contato: frase alterada para "fale com a equipe".
+Mural e avaliacoes: formularios HTML com envio direto para FormSubmit; no primeiro uso, o servico pode solicitar confirmacao no email gabyzinha.ggm@gmail.com. Sem confirmacao, nao ha garantia de entrega.
+As publicacoes NAO entram automaticamente no site. Apos aprovacao, inclua os dados manualmente em recados.json e avaliacoes.json e publique via GitHub.
+Git: git add . ; git commit -m "Atualizar site e formularios" ; git push origin main

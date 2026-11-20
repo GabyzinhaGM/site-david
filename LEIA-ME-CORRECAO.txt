@@ -1,0 +1,7 @@
+FORMULARIOS CORRIGIDOS
+
+Mural e avaliacoes agora usam envio HTML direto ao FormSubmit, sem AJAX.
+No primeiro envio, o servico deve pedir confirmacao para gabyzinha.ggm@gmail.com. Verifique caixa de entrada e spam.
+Se o servico mostrar erro, copie a mensagem para diagnostico.
+O envio NAO publica automaticamente. As mensagens aprovadas devem ser adicionadas a recados.json e avaliacoes.json no GitHub.
+Preserve CNAME, DSC_1035.jpg e agenda.json existentes.
