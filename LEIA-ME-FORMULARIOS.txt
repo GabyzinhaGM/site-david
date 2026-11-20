@@ -1,0 +1,9 @@
+CORREÇÃO DO MURAL E DAS AVALIAÇÕES
+
+Os formulários usam FormSubmit, um serviço externo que precisa de ativação no e-mail gabyzinha.ggm@gmail.com. Não é possível garantir que ele entregue mensagens sem essa ativação.
+
+Foi acrescentado um botão alternativo em cada formulário: "Enviar pelo meu aplicativo de e-mail". Ele abre o programa de e-mail configurado no dispositivo do visitante com a mensagem preenchida. O visitante precisa pressionar Enviar no aplicativo. Se não houver aplicativo de e-mail configurado, a alternativa também pode falhar.
+
+Aprovação: mensagens recebidas não são publicadas automaticamente. Após a aprovação, insira-as manualmente em recados.json ou avaliacoes.json e publique no GitHub.
+
+Preserve os arquivos do repositório que não estejam no ZIP, como agenda.json, CNAME e fotos.
