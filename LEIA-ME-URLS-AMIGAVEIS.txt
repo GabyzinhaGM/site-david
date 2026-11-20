@@ -1,5 +1,1 @@
-URLs amigáveis: /sobre/, /agenda/, /shows/, /producao/, /mural/, /apoie/, /avaliacoes/, /contato/, /orcamento/.
-Arquivos .html antigos preservados para compatibilidade.
-Publique o CONTEÚDO deste ZIP na raiz do repositório GitHub Pages.
-A integração com Google Planilhas (Codigo.gs, configuracao.js e script.js) foi preservada.
-Observação: o script de agenda solicita agenda.json, mas esse arquivo não estava no ZIP recebido; essa dependência preexistente não foi modificada.
+URLs amigáveis: cada pagina tem pasta/index.html. Publique TODO o conteudo do ZIP na raiz do repositorio, inclusive as pastas. Os arquivos .html antigos foram preservados. Verifique GitHub Actions/Pages apos push.
