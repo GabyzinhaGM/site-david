@@ -1,0 +1,9 @@
+SITE DAVID MEIRELES — ATUALIZAÇÃO
+
+Substitua os arquivos no GitHub. PRESERVE agenda.json, CNAME, DSC_1035.jpg e arquivos de administração.
+
+MURAL E AVALIAÇÕES: visitantes enviam por e-mail; a equipe publica manualmente editando recados.json e avaliacoes.json. Exemplo: [{"nome":"Maria","mensagem":"Show maravilhoso!"}] . Para avaliações: [{"nome":"Maria","servico":"Show","nota":"5 estrelas","mensagem":"Excelente!"}]. Não publique informações pessoais sem consentimento.
+
+PIX: chave oculta, botão copia a chave. Para abrir uma transação diretamente, é necessário fornecer um link de cobrança Pix válido; chave de celular não é link de pagamento.
+
+AGENDA: o arquivo agenda.json original não foi incluído. Se o erro persistir, verifique o JSON original e o caminho no GitHub.

@@ -1,0 +1,10 @@
+SITE DAVID MEIRELES — FORMULÁRIOS PARA APROVAÇÃO
+
+Os formulários de mural e avaliações enviam pedidos para gabyzinha.ggm@gmail.com pelo FormSubmit.
+IMPORTANTE: no primeiro envio, o FormSubmit poderá mandar um e-mail de ativação. Abra esse e-mail e confirme o endereço para começar a receber os envios. Sem ativação, não é garantida a entrega. Confira também o spam.
+
+Os recados NÃO são publicados automaticamente. Após analisar, edite recados.json ou avaliacoes.json no GitHub e acrescente o registro aprovado no array JSON. Exemplo de recado: [{"nome":"Ana","mensagem":"Adorei o show!"}]. Exemplo de avaliação: [{"nome":"Ana","servico":"Show ao vivo","nota":5,"mensagem":"Excelente apresentação!"}]. Não publique dados pessoais sem autorização.
+
+Envie os arquivos deste ZIP para a raiz do repositório. Preserve os arquivos CNAME, DSC_1035.jpg e agenda.json do seu repositório; eles não estão neste pacote. A agenda depende do JSON existente.
+
+O formulário utiliza um serviço externo de envio de e-mails (FormSubmit), mas não requer Firebase ou banco de dados. O serviço pode ter regras antispam e limitações.
